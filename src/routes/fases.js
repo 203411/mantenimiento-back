@@ -21,11 +21,11 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
     const { nombre,id_rol,id_proyecto} = req.body;
-    const newFAse = {
+    const newFase = {
         nombre,id_rol,id_proyecto
     };
 
-    await pool.query("INSERT INTO fase set ?", [newFAse]);
+    await pool.query("INSERT INTO fase set ?", [newFase]);
     res.send(req.body);
 });
 
