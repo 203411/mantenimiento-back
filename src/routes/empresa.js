@@ -33,9 +33,9 @@ router.post("/", async (req, res) => {
     res.send(req.body);
 });
 //eliminar
-router.get("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
     const { id } = req.params;
-    await pool.query("DELETE FROM fase WHERE id = ?", [id]);
+    await pool.query("DELETE FROM empresa WHERE id = ?", [id]);
     res.send("empresa eliminada");
 });
 //editar
@@ -45,11 +45,11 @@ router.get("/edit/:id", async (req, res) => {
     res.send(empresas);
 });
 
-router.post("/edit/:id", async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
     const { id } = req.params;
-    const { nombre,id_rol,id_proyecto} = req.body;
+    const { nombre, historia, organigrama, funcion_puesto, alcance, vocabulario, cond_gen, mision, vision, politicas, logo, doc_ref, minuta_acuer} = req.body;
     const nuevaEmpresa = {
-        nombre,id_rol,id_proyecto
+        id, nombre, historia, organigrama, funcion_puesto, alcance, vocabulario, cond_gen, mision, vision, politicas, logo, doc_ref, minuta_acuer
     };
     await pool.query("UPDATE empresa set ? WHERE id = ?", [nuevaEmpresa, id]);
     res.send(req.body);
