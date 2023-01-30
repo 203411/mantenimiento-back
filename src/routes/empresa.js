@@ -5,12 +5,12 @@ const bd = require("body-parser");
 
 router.use(bd.json());
 router.use(bd.urlencoded({ extended: true }));
-//consulta
+//consultas
 router.get("/",async (req, res) => {
     const empresas = await pool.query("SELECT * FROM empresa");
     res.send(empresas);
 });
-//consulta por id
+//consultas por id
 router.get("/:id", async (req, res) => {
     const { id } = req.params;
     const empresas = await pool.query("SELECT * FROM empresa WHERE id = ?", [id]);
