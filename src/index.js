@@ -18,6 +18,7 @@ app.use(morgan("dev"));
 app.use(require("./routes/index"));
 app.use("/procesos",require("./routes/procesos"));
 app.use("/empresa",require("./routes/empresa"));
+app.use("/plantilla",require("./routes/plantilla"));
 app.use("/evidencias",require("./routes/evidencias"));
 app.use("roles",require("./routes/roles"));
 app.use("/fases",require("./routes/fases"));
