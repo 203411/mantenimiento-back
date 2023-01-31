@@ -33,7 +33,6 @@ router.post("/", async (req, res) => {
 
 
 
-
 router.get("/edit/:id", async (req, res) => {
     const { id } = req.params;
     const procesos = await pool.query("SELECT * FROM proceso WHERE id = ?", [id]);
